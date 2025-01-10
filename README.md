@@ -29,36 +29,38 @@ Todas as dependências necessárias para rodar o projeto estão listadas abaixo.
 * [bcrypt](https://github.com/kelektiv/node.bcrypt.js#readme)
 * [nodemon](https://nodemon.io)
 
-## Como rodar o projeto ✅
+## Configurando Ambiente ✅
 
-Antes de iniciarmos a instalação do projeto, devemos instalar as ferramentas para testarmos os endpoints e o banco de dados par verificarmos os dados inseridos.
+Antes de iniciarmos a instalação do projeto, devemos instalar as ferramentas para testarmos os endpoints e o banco de dados.
 
-- Instale a ferramenta [Insomnia](https://insomnia.rest/download)
+1. Instale a ferramenta [Insomnia](https://insomnia.rest/download)
 
-* Faça o download do banco de dados [PostgreSQL](https://www.postgresql.org/download/) e instale no seu computador.
+2. Instale no seu computador o [PostgreSQL](https://www.postgresql.org/download/).
 
-Feito as intalações acima, siga as etapas abaixo para poder instalar o projeto e as dependências.
+Com as ferramentas acima instaladas, siga as etapas a seguir para instalar o projeto e as dependências.
 
-Crie uma nova pasta no seu computador, podendo ser na área de trabalho ou onde você preferir.
+Crie uma nova pasta no seu computador.
 
-Dentro da pasta, abra o prompt de comando e digite os comandos a seguir:
+Dentro dessa nova pasta abra o cmd e digite os comandos a seguir:
 
-```` 
+```bash
+# criando pasta
 mkdir tasklistApi
 
+# acessando a pasta criada
 cd tasklistApi
-````
+```
 
-Dentro da pasta, cloe este repositório:
+Clone este repositório:
 
 ```bash
 # clonando repositório
 git clone <https://github.com/1stRodrigo/TaskListAPI>
 
-# instale as dependências
+# instalando as dependências
 npm install
-
 ```
+
 O **script** para inicializar o servidor, ja está configurado no arquivo `package.json`, não sendo necessário alterar nada.
 ```
   "scripts": {
@@ -66,42 +68,38 @@ O **script** para inicializar o servidor, ja está configurado no arquivo `packa
   },
 ```
 
-Execute o projeto localhost:
+Execute o comando abaixo para inicializar o servidor:
 `yarn dev`
 
 Se tudo ocorreu bem, no terminal você verá escrito:
 
 `[nodemon] starting node -r sucrase/register src/server.js`
 
-## Como rodar os testes
+Para fechar a conexão do servidor basta realizar o comando ``Ctrl + C``
 
-Explique como rodar os testes da aplicação. Exemplo de um comando usando Makefile para rodar os testes:
+## Como rodar a API
 
+Após instalar as dependencias e as ferramentas, siga os passos a seguir para rodar o projeto:
+
+Primeiro abra o banco de dados, pesquisando por **pgAdmin4** (Este é o nome dado ao PostgreSQL) e configure usando o mesmo nome do projeto ``tasklistApi``.
+
+Execute o programa **Insomnia** e importe o arquivo ``Insomnia_2025-01-09.json`` localizado dentro da pasta do projeto.
+
+Abra o terminal dentro da pasta do projeto e execute o comando para iniciar conexão do servidor local:
+```bash
+#executando servidor
+yarn dev
 ```
-make test
+
+### Teste a API utilizando o **Insomnia**, e faça a checagem dos dados no **PostgreSQL**.
+
+
+## 📌 JWT (Json Web Token) - Importante 📌
+
+Ao testar a API, crie primeiro um "usuário teste" e copie o token gerado na resposta, esse token é usado para fazer a autenticação de usuário. 
+As únicas rotas que **não necessitam** de adicionar o token são:
+```bash
+POST /users
+POST /sessions
 ```
 
-## 📌 (Título) - Informações importantes sobre a aplicação (exemplo) 📌
-
-Esse é o local para você preencher com outras informações que possam ser importantes para a aplicação. Coloquei um exemplo de título, mas você deve preencher de acordo com a necessidade do projeto. Pode ser que não seja necessário.
-
-Um bom exemplo: se você estiver construindo uma API, liste as rotas da aplicação e quais serão os seus retornos. Isso facilita para quem vai consumir a API.
-
-
-## ⚠️ Problemas enfrentados
-
-Liste os problemas que você enfrentou construindo a aplicação e como você resolveu cada um deles. Você que desenvolveu o projeto é a pessoa que mais conhece/entende os possíveis problemas que uma pessoa pode enfrentar rodando a aplicação. Compartilhe esse conhecimento e facilite a vida da pessoa descrevendo-os.
-
-Exemplo:
-
-### Problema 1:
-Descrição do problema
-* Como solucionar: explicar a solução.
-
-### Problema 2:
-Descrição do problema
-* Como solucionar: explicar a solução.
-
-## ⏭️ Próximos passos
-
-Descreva se você pretende, pensou ou gostaria de elaborar uma nova feature para o seu projeto definindo os próximos passos.
